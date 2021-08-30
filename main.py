@@ -4,6 +4,7 @@ import openpyxl
 
 
 def write_str(t_id, c_id):
+    df = pd.read_csv(fsell, delimiter=',', header=0, dtype={'price': int})
     dfp = df.loc[df['tid'].isin(t_id)]
     for i in dfp.index:
         string = str(c_id) + ';0;0;1;' + str(dfp['card'][i]) + ';' + str(dfp['type_id'][i]) + ';' + str(
@@ -13,7 +14,7 @@ def write_str(t_id, c_id):
 
 fsell = 'C:/worker/sell.csv'
 fpart = 'C:/worker/part.xlsx'
-df = pd.read_csv(fsell, delimiter=',', header=0, dtype={'price': int})
+
 dfpart = pd.read_excel(fpart, header=0, engine='openpyxl')
 amountnow = 0
 write_str([49, 45, 173, 47], 112)
