@@ -1,6 +1,6 @@
 from datetime import datetime
 import pandas as pd
-
+import openpyxl
 fsell = 'C:/worker/sell.csv'
 fpart = 'C:/worker/part.xlsx'
 df = pd.read_csv(fsell, delimiter=',', header=0, dtype={'price': int})
