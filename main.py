@@ -15,7 +15,7 @@ def write_str(t_id, c_id):
             f_in.write(string + "\n")
 
 
-regname = 'RegisterSubscriptionSales_00032_00046_1000000001_' + str(datetime.today().strftime("%Y%m$d")) + '.csv'
+regname = 'RegisterSubscriptionSales_00032_00046_1000000001_' + str(datetime.today().strftime("%Y%m%d")) + '.csv'
 summ = 0
 fsell = 'C:/worker/sell.csv'
 fpart = 'C:/worker/part.xlsx'
