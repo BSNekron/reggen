@@ -20,7 +20,6 @@ summ = 0
 fsell = 'C:/worker/sell.csv'
 fpart = 'C:/worker/part.xlsx'
 df = pd.read_csv(fsell, delimiter=',', header=0, dtype={'price': int})
-dfpart = pd.read_excel(fpart, header=0, engine='openpyxl')
 with open('c:/worker/' + regname, 'a') as f_in:
     f_in.write("OrganizationID;INN;BIC;MifareUID;TransportCardID;TicketID;Amount;Datetime\n")
 write_str([49, 45, 173, 47], 112)
