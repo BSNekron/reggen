@@ -11,7 +11,6 @@ df = pd.read_csv(fsell, delimiter=',', header=0, dtype={'price': int})
 part = 0
 start = 0
 prev_tid = 0
-# def write_str(t_id, c_id):
 
 with open('c:/worker/' + regname, 'a') as f_in:
     f_in.write("OrganizationID;INN;BIC;MifareUID;TransportCardID;TicketID;Amount;Datetime\n")
