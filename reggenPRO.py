@@ -23,7 +23,7 @@ for t in dfpart.index:
     if int(t_id) != prev_tid:
         start = 0
         part = 0
-    for i in range(start, dfp.index.max(), 1):
+    for i in range(start, dfp.index.max() + 1, 1):
         dfreg = pd.read_csv('c:/worker/' + regname, header=0, dtype={'amount': int}, delimiter=';')
         if dfreg.empty:
             cur_sum = 0
