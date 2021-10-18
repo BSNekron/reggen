@@ -2,8 +2,8 @@ from datetime import datetime
 import pandas as pd
 import openpyxl
 
-sumpatp = 48391422
-sumbtu = 11878578
+sumpatp = 10625155
+sumbtu = 3064845
 
 
 def write_str(t_id, c_id):
@@ -25,32 +25,32 @@ with open('c:/worker/' + regname, 'a') as f_in:
 write_str([49, 45, 173, 47], 112)
 write_str([174, 44, 46, 48], 113)
 
-dfp = df.loc[df['tid'].isin([34, 28, 50, 33])]
-for i in dfp.index:
-    if summ != sumpatp:
-        summ = summ + df['priсe'][i]
-        if summ < sumpatp:
-            string = '112;0;0;1;' + str(dfp['card'][i]) + ';' + str(dfp['type_id'][i]) + ';' + str(
-                df['priсe'][i]) + ';' + str(datetime.today().strftime("%d.%m.%Y %H:%M:%S"))
-            print(string)
-            with open('c:/worker/' + regname, 'a') as f_in:
-                f_in.write(string + "\n")
-        elif summ > sumpatp:
-            price = summ - sumpatp
-            string = '112;0;0;1;' + str(dfp['card'][i]) + ';' + str(dfp['type_id'][i]) + ';' + str(
-                df['priсe'][i] - price) + ';' + str(datetime.today().strftime("%d.%m.%Y %H:%M:%S"))
-            print(string)
-            with open('c:/worker/' + regname, 'a') as f_in:
-                f_in.write(string + "\n")
-            string = '113;0;0;1;' + str(dfp['card'][i]) + ';' + str(dfp['type_id'][i]) + ';' + str(
-                price) + ';' + str(datetime.today().strftime("%d.%m.%Y %H:%M:%S"))
-            print(string)
-            with open('c:/worker/' + regname, 'a') as f_in:
-                f_in.write(string + "\n")
-            summ = sumpatp
-    else:
-        string = '113;0;0;1;' + str(dfp['card'][i]) + ';' + str(dfp['type_id'][i]) + ';' + str(
-            df['priсe'][i]) + ';' + str(datetime.today().strftime("%d.%m.%Y %H:%M:%S"))
-        print(string)
-        with open('c:/worker/' + regname, 'a') as f_in:
-            f_in.write(string + "\n")
+# dfp = df.loc[df['tid'].isin([34, 28, 50, 33])]
+# for i in dfp.index:
+#     if summ != sumpatp:
+#         summ = summ + df['priсe'][i]
+#         if summ < sumpatp:
+#             string = '112;0;0;1;' + str(dfp['card'][i]) + ';' + str(dfp['type_id'][i]) + ';' + str(
+#                 df['priсe'][i]) + ';' + str(datetime.today().strftime("%d.%m.%Y %H:%M:%S"))
+#             print(string)
+#             with open('c:/worker/' + regname, 'a') as f_in:
+#                 f_in.write(string + "\n")
+#         elif summ > sumpatp:
+#             price = summ - sumpatp
+#             string = '112;0;0;1;' + str(dfp['card'][i]) + ';' + str(dfp['type_id'][i]) + ';' + str(
+#                 df['priсe'][i] - price) + ';' + str(datetime.today().strftime("%d.%m.%Y %H:%M:%S"))
+#             print(string)
+#             with open('c:/worker/' + regname, 'a') as f_in:
+#                 f_in.write(string + "\n")
+#             string = '113;0;0;1;' + str(dfp['card'][i]) + ';' + str(dfp['type_id'][i]) + ';' + str(
+#                 price) + ';' + str(datetime.today().strftime("%d.%m.%Y %H:%M:%S"))
+#             print(string)
+#             with open('c:/worker/' + regname, 'a') as f_in:
+#                 f_in.write(string + "\n")
+#             summ = sumpatp
+#     else:
+#         string = '113;0;0;1;' + str(dfp['card'][i]) + ';' + str(dfp['type_id'][i]) + ';' + str(
+#             df['priсe'][i]) + ';' + str(datetime.today().strftime("%d.%m.%Y %H:%M:%S"))
+#         print(string)
+#         with open('c:/worker/' + regname, 'a') as f_in:
+#             f_in.write(string + "\n")
