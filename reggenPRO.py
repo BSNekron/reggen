@@ -18,7 +18,10 @@ for t in dfpart.index:
     print(str(dfpart['type'][t] + ' : ' + dfpart['company_id'][t]))
     t_id = str(dfpart['type'][t])
     c_id = str(dfpart['company_id'][t])
-    dfp = df.loc[df['type_id'].isin([t_id])]
+    if t_id == 172:
+        dfp = df.loc[df['tid'].isin([t_id])]
+    else:
+        dfp = df.loc[df['type_id'].isin([t_id])]
     dfp = dfp.reset_index()
     if int(t_id) != prev_tid:
         start = 0
@@ -29,7 +32,8 @@ for t in dfpart.index:
             cur_sum = 0
         else:
             dfcomp = dfreg.loc[dfreg['OrganizationID'].isin([c_id])]
-            dfcomp = dfcomp.loc[dfcomp['TicketID'].isin([t_id])]
+            if t_id != 172:
+               dfcomp = dfcomp.loc[dfcomp['TicketID'].isin([t_id])]
             cur_sum = dfcomp['Amount'].sum()
         amount = dfpart['amount'][t]
         cur_sum = cur_sum + dfp['priсe'][i]
@@ -50,9 +54,13 @@ for t in dfpart.index:
             with open('c:/worker/' + regname, 'a') as f_in:
                 f_in.write(string + "\n")
             start = i
-            prev_tid = dfp['type_id'][i]
+
             dfreg = pd.read_csv('c:/worker/' + regname, header=0, dtype={'amount': int}, delimiter=';')
             dfcomp = dfreg.loc[dfreg['OrganizationID'].isin([c_id])]
-            dfcomp = dfcomp.loc[dfcomp['TicketID'].isin([t_id])]
+            if t_id != 172:
+                dfcomp = dfcomp.loc[dfcomp['TicketID'].isin([t_id])]
+
+            else:
+                prev_tid = dfp['tid'][i]
             print(dfcomp['Amount'].sum())
             break
