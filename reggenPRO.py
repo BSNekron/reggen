@@ -18,7 +18,7 @@ for t in dfpart.index:
     print(str(dfpart['type'][t] + ' : ' + dfpart['company_id'][t]))
     t_id = str(dfpart['type'][t])
     c_id = str(dfpart['company_id'][t])
-    if t_id == 172:
+    if t_id == '172':
         dfp = df.loc[df['tid'].isin([t_id])]
     else:
         dfp = df.loc[df['type_id'].isin([t_id])]
@@ -32,7 +32,7 @@ for t in dfpart.index:
             cur_sum = 0
         else:
             dfcomp = dfreg.loc[dfreg['OrganizationID'].isin([c_id])]
-            if t_id != 172:
+            if t_id != '172':
                dfcomp = dfcomp.loc[dfcomp['TicketID'].isin([t_id])]
             cur_sum = dfcomp['Amount'].sum()
         amount = dfpart['amount'][t]
@@ -59,7 +59,7 @@ for t in dfpart.index:
             dfcomp = dfreg.loc[dfreg['OrganizationID'].isin([c_id])]
             if t_id != 172:
                 dfcomp = dfcomp.loc[dfcomp['TicketID'].isin([t_id])]
-
+                prev_tid = dfp['type_id'][i]
             else:
                 prev_tid = dfp['tid'][i]
             print(dfcomp['Amount'].sum())
