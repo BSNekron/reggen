@@ -2,8 +2,8 @@ from datetime import datetime
 import pandas as pd
 import openpyxl
 
-sumpatp = 11874822
-sumbtu = 3230178
+sumpatp = 54862690
+sumbtu  = 12302310
 
 
 def write_str(t_id, c_id):

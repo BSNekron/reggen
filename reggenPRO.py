@@ -57,7 +57,7 @@ for t in dfpart.index:
 
             dfreg = pd.read_csv('c:/worker/' + regname, header=0, dtype={'amount': int}, delimiter=';')
             dfcomp = dfreg.loc[dfreg['OrganizationID'].isin([c_id])]
-            if t_id != 172:
+            if t_id != '172':
                 dfcomp = dfcomp.loc[dfcomp['TicketID'].isin([t_id])]
                 prev_tid = dfp['type_id'][i]
             else:
